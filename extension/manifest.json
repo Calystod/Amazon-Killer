@@ -1,0 +1,26 @@
+{
+  "manifest_version": 2,
+  "name": "amazon-killer-l10n",
+  "description": "Adds a link in Amazon to buy a book in a true library",
+  "version": "1.0",
+  "homepage_url": "https://github.com/Calystod/Amazon-Killer",
+  "applications": {
+    "gecko": {
+      "id": "amazon-killer-l10n@mozilla.org",
+      "strict_min_version": "45.0.0"
+    }
+  },
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.amazon.fr/*"],
+      "js": ["jquery.js", "content.js"]
+    }
+  ],
+  "options_ui": {
+    "page": "settings/choose_country.html"
+  },
+  "permissions": ["storage"]
+}
